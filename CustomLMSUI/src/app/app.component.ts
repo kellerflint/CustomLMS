@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { UserService } from './services/user.service';
 
+import { SocialAuthService } from "angularx-social-login";
+import { GoogleLoginProvider } from "angularx-social-login";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,11 +14,19 @@ export class AppComponent {
 
   test = '';
 
-  constructor(private userService: UserService) {}
-  
+  constructor(private authService: SocialAuthService, private userService: UserService) { }
+
   ngOnInit(): void {
     this.userService.getTestRes().subscribe(res => {
       this.test = res.word;
     });
+  }
+
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+
+  signOut(): void {
+    this.authService.signOut();
   }
 }
