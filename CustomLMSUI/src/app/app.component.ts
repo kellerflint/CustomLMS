@@ -14,11 +14,18 @@ export class AppComponent {
 
   test = '';
 
+  username!: string;
+
   constructor(private authService: SocialAuthService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getTestRes().subscribe(res => {
       this.test = res.word;
+    });
+
+    this.authService.authState.subscribe(user => {
+      console.log(user);
+      this.username = user.firstName;
     });
   }
 
