@@ -25,7 +25,7 @@ export class AppComponent {
 
     this.authService.authState.subscribe(user => {
       console.log(user);
-      this.username = user.firstName;
+      this.username = user?.firstName;
     });
   }
 
