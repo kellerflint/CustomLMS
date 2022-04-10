@@ -7,8 +7,7 @@ import { TestObject } from '../models/TestObject';
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getTestRes(): Observable<TestObject> {
     return this.http.get<TestObject>('https://localhost:7083/home');

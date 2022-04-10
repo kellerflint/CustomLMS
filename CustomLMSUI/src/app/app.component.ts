@@ -1,22 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 
-import { SocialAuthService } from "angularx-social-login";
-import { GoogleLoginProvider } from "angularx-social-login";
+import { SocialAuthService } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'CustomLMSUI';
 
   test = '';
 
   username!: string;
 
-  constructor(private authService: SocialAuthService, private userService: UserService) { }
+  constructor(
+    private authService: SocialAuthService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.userService.getTestRes().subscribe(res => {

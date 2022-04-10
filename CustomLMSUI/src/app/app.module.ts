@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {
-  GoogleLoginProvider,
+  SocialLoginModule,
+  SocialAuthServiceConfig
 } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,12 +30,12 @@ import { AppComponent } from './app.component';
             )
           }
         ],
-        onError: (err) => {
+        onError: err => {
           console.error(err);
         }
-      } as SocialAuthServiceConfig,
+      } as SocialAuthServiceConfig
     }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,9 +1,9 @@
-<h1>{{test}}</h1>
+<h1>{{ test }}</h1>
 <div *ngIf="username; else signedOut">
-    <p>{{username}}</p>
-    <button (click)="signOut()">Sign out</button>
+  <p>{{ username }}</p>
+  <button (click)="signOut()">Sign out</button>
 </div>
 <ng-template #signedOut>
-    <button (click)="signInWithGoogle()">Sign in with google</button>
+  <button (click)="signInWithGoogle()">Sign in with google</button>
 </ng-template>
 <router-outlet></router-outlet>

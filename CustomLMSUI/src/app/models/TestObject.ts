@@ -1,3 +1,3 @@
 export interface TestObject {
-    word: string;
+  word: string;
 }
